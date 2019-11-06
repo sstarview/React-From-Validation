@@ -1,12 +1,12 @@
 import React, { Component } from "react";
+import "./UserData.css";
 
 export default class UserData extends Component {
   render() {
     const { userData } = this.props;
-    console.log(userData);
 
     return (
-      <div>
+      <div className="user-data">
         <h1>User Information</h1>
 
         {userData.map((item, index) => (
