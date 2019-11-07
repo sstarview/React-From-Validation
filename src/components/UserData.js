@@ -4,6 +4,7 @@ import "./UserData.css";
 export default class UserData extends Component {
   render() {
     const { userData } = this.props;
+    console.log(userData);
 
     return (
       <div className="user-data">

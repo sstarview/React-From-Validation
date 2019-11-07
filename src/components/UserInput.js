@@ -10,7 +10,8 @@ export default class UserInput extends Component {
       email,
       phone,
       password,
-      address
+      address,
+      errors
     } = this.props;
     return (
       <div className="Form">
@@ -26,6 +27,7 @@ export default class UserInput extends Component {
                 onChange={handleChange}
                 placeholder="Name"
               ></input>
+              <div>{errors.nameError}</div>
             </div>
             <div className="form1">
               <label>Email: </label>
@@ -36,6 +38,7 @@ export default class UserInput extends Component {
                 onChange={handleChange}
                 placeholder="Email"
               ></input>
+              <div>{errors.emailError}</div>
             </div>
             <div className="form1">
               <label>Password: </label>
@@ -46,6 +49,7 @@ export default class UserInput extends Component {
                 onChange={handleChange}
                 placeholder="Password"
               ></input>
+              <div>{errors.passwordError}</div>
             </div>
             <div className="form1">
               <label>Phone: </label>
@@ -56,6 +60,7 @@ export default class UserInput extends Component {
                 onChange={handleChange}
                 placeholder="Phone"
               ></input>
+              <div>{errors.phoneError}</div>
             </div>
             <div className="form1">
               <label>Address: </label>
@@ -64,8 +69,9 @@ export default class UserInput extends Component {
                 name="Address"
                 type="text"
                 onChange={handleChange}
-                placeholder="address"
+                placeholder="Address"
               ></input>
+              <div>{errors.addressError}</div>
             </div>
             <button>Submit</button>
           </form>

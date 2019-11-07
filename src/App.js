@@ -5,12 +5,33 @@ import UserData from "./components/UserData";
 
 class App extends React.Component {
   state = {
+    // initialState: {
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    //   phone: "",
+    //   address: "",
+    // errors: {
+    //   nameError: "jbjbj",
+    //   emaiError: "",
+    //   passwordError: "",
+    //   phoneError: "",
+    //   addressError: ""
+    // }
+    // },
     userData: [],
     name: "",
     email: "",
     password: "",
     phone: "",
-    address: ""
+    address: "",
+    errors: {
+      nameError: "",
+      emailError: "",
+      passwordError: "",
+      phoneError: "",
+      addressError: ""
+    }
   };
 
   handleChange = e => {
@@ -46,9 +67,58 @@ class App extends React.Component {
     }
   };
 
+  validate = () => {
+    let nameError = "";
+    let emailError = "";
+    let passwordError = "";
+    let phoneError = "";
+    let addressError = "";
+
+    if (!this.state.name) {
+      nameError = "Name is must";
+    }
+    if (!this.state.email.includes("@")) {
+      emailError = "Invalid Email";
+    }
+    if (!this.state.password || this.state.password.length < 6) {
+      passwordError = "Password must be 6 character long";
+    }
+    if (
+      !this.state.phone ||
+      isNaN(this.state.phone) ||
+      this.state.phone.length < 10
+    ) {
+      phoneError = "Invalid Phone Number";
+    }
+    if (!this.state.address) {
+      addressError = "Invalid Address";
+    }
+    if (
+      nameError ||
+      emailError ||
+      passwordError ||
+      phoneError ||
+      addressError
+    ) {
+      this.setState({
+        errors: {
+          nameError,
+          emailError,
+          passwordError,
+          phoneError,
+          addressError
+        }
+      });
+      return false;
+    }
+    return true;
+  };
+
   handleSubmit = e => {
-    // const updatedUserData
     e.preventDefault();
+
+    const isValid = this.validate();
+
     const updatedData = [
       {
         name: this.state.name,
@@ -58,14 +128,28 @@ class App extends React.Component {
         address: this.state.address
       }
     ];
-    this.setState({
-      userData: [...updatedData],
-      name: "",
-      email: "",
-      password: "",
-      phone: "",
-      address: ""
-    });
+
+    // setting the array with only one user
+    // setting data to initial state
+    if (isValid) {
+      this.setState({
+        userData: [...updatedData],
+        name: "",
+        email: "",
+        password: "",
+        phone: "",
+        address: "",
+
+        errors: {
+          nameError: "",
+
+          emailError: "",
+          passwordError: "",
+          phoneError: "",
+          addressError: ""
+        }
+      });
+    }
   };
 
   render() {
@@ -79,6 +163,7 @@ class App extends React.Component {
           password={this.state.password}
           phone={this.state.phone}
           address={this.state.address}
+          errors={this.state.errors}
         />
         <UserData userData={this.state.userData} />
       </div>

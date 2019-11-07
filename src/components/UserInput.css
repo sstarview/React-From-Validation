@@ -34,7 +34,7 @@ button {
   font-weight: bold;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 668px) {
   .Form {
     min-width: 50%;
     margin: 0;
