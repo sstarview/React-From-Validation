@@ -1,14 +1,26 @@
 .App {
   min-width: 100vw;
-  background-color: red;
+  /* background-color: red; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.vl {
+  border-top: 3px solid red;
+  min-width: 80vw;
+}
+
 @media only screen and (min-width: 668px) {
   .App {
     flex-direction: row;
     align-items: flex-start;
+  }
+  .vl {
+    border-left: 5px solid red;
+    border-top: 0;
+    min-height: 80vh;
+    align-self: center;
+    min-width: 0;
   }
 }

@@ -27,7 +27,7 @@ export default class UserInput extends Component {
                 onChange={handleChange}
                 placeholder="Name"
               ></input>
-              <div>{errors.nameError}</div>
+              <div className="errors">{errors.nameError}</div>
             </div>
             <div className="form1">
               <label>Email: </label>

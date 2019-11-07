@@ -165,6 +165,7 @@ class App extends React.Component {
           address={this.state.address}
           errors={this.state.errors}
         />
+        <div className="vl"></div>
         <UserData userData={this.state.userData} />
       </div>
     );
