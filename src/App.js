@@ -5,20 +5,6 @@ import UserData from "./components/UserData";
 
 class App extends React.Component {
   state = {
-    // initialState: {
-    //   name: "",
-    //   email: "",
-    //   password: "",
-    //   phone: "",
-    //   address: "",
-    // errors: {
-    //   nameError: "jbjbj",
-    //   emaiError: "",
-    //   passwordError: "",
-    //   phoneError: "",
-    //   addressError: ""
-    // }
-    // },
     userData: [],
     name: "",
     email: "",
